@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_URI} !^public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+ 
+
+<Limit GET POST PUT DELETE OPTIONS>
+        Require all granted
+</Limit>
+<LimitExcept GET POST PUT DELETE OPTIONS>
+  Require all denied
+</LimitExcept>
